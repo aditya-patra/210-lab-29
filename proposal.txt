@@ -1,0 +1,6 @@
+Project Overview:
+Project simulates changes in an environment. Map is used with key as species name. 3 Lists are foods, predators, and 
+
+Implementation:
+
+Simulated Events:
