@@ -11,6 +11,12 @@ The key in each pair will store the farmer name while the value will store an st
 Each simulation of changes in a farmer's belongings only directly changes livestock, but the amount of livestock determines land and value of the farmer.
 
 Simulated Events:
+Land is split into segments, with each segment being able to support a specific number of each type of livestock.
+Each segment can only support one type of livestock - can be attributed to each type of livestock requiring specific farm equipment and buildings
 Simulation focuses on changes in livestock first.
-Each type of livestock for a farmer has a cap based on the number of land segments allocated.
-Livestock count can change through the following processes.
+Livestock count can change through the following processes:
+ - propogation: population increase is based on livestock cap and rate of growth varies by species
+ - natural death: chance of death varies between livestock species
+ - sudden illness: all livestock have equal chance of becoming ill
+ - plague: 80% of that type of livestock die for that farmer
+After livestock change, program determines changes in land. If there is available land, there is an 80% chance
