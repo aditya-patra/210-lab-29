@@ -7,8 +7,7 @@ The project will simulate changes in the livestock and land of each farmer over 
 
 Implementation:
 std::map will store farmer data with each farmer and his livestock as a key-value pair.
-The key in each pair will store the farmer name while the value will store an std::array containing 3 std::lists, one for the livestock, one for the land taken by each type of livestock, and one for the value of each type of livestock.
-The type of livestock in each index is based off of 
+The key in each pair will store the farmer name while the value will store an std::array containing 3 std::lists, one for the livestock name, one for livestock count, and one for the land taken by each type of livestock.
 Each simulation of changes in a farmer's belongings only directly changes livestock, but the amount of livestock determines land and value of the farmer.
 
 Simulated Events:
@@ -23,6 +22,6 @@ Livestock count can change through the following processes:
  - plague: farmer loses most of a livestock species
 After livestock change, program determines changes in land. If there is available land, it is randomly split between existing farmers
  - when land is given to a farmer, there is an equal chance of it going to any livestock species or going to a new species
-Value of each livestock for each farmer is then calculated.
-If value of any livestock species is less than 25, farmer sells corresponding land as rent is more than earnings.
+Value of each livestock for each farmer is then calculated based off of livestock type and livestock count
+ - If value of any livestock species is less than 25, farmer sells corresponding land as rent is more than earnings.
 If a farmer loses all of his land, he goes bankrupt and is no longer included

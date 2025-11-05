@@ -14,14 +14,15 @@
   // For each piece of available land, use rand to choose farmer it goes to
     // Use rand to choose type of animal(if animal already in farm, add land to that list index)
   // Iterate over farmers
-    // Recalculate value of each livestock species and update value list
+    // Determine value of livestock species
     // If value less than 25, store index in temp variable, check temp next iteration, iterate through each list and delete index
-    // If total value of farmer is 0, erase farmer from map
+    // If total land of farmer is 0, erase farmer from map
 
 // main function
-  // instantiate map
+  // instantiate map of farmers
+  // make map of animal type to value
   // set number of available land segments
   // create file reader
-  // read file to form map(each row should contain a farmer name followed by this set repeated 3 times - [animal count, number of plots, total value])
-  // call simulation function
+  // read file to form map(each row should contain a farmer name followed by this set repeated 3 times - [animal, animal count, number of plots])
   // repeat 60 times(300 years, 5 year interval)
+    // call simulation function
