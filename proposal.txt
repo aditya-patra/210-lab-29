@@ -1,5 +1,6 @@
 Project Overview:
-Project simulates a county consisting of farms. The key will be a farmer name and the array will be the livestock, with each list corresponding to a different animal.
+Project simulates a county consisting of farms. The project simulates how various farmers fight over the same piece of land(as land is limited in a county), predicting how the number of livestock of each farmer changes. By predicting the change in livestock of each farmer, the program demonstrates how the success of various individuals depends on supply and demand as well as natural crises.
+The key will be a farmer name and the array will be the livestock, with each list corresponding to a different animal.
 
 Implementation:
 
