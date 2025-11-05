@@ -8,6 +8,7 @@ The project will simulate changes in the livestock and land of each farmer over 
 Implementation:
 std::map will store farmer data with each farmer and his livestock as a key-value pair.
 The key in each pair will store the farmer name while the value will store an std::array containing 3 std::lists, one for the livestock, one for the land taken by each type of livestock, and one for the value of each type of livestock.
+The type of livestock in each index is based off of 
 Each simulation of changes in a farmer's belongings only directly changes livestock, but the amount of livestock determines land and value of the farmer.
 
 Simulated Events:
