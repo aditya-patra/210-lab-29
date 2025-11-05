@@ -1,5 +1,5 @@
 Project Overview:
-Project simulates changes in an environment. Map is used with key as species name. 3 Lists are foods, predators, and 
+Project simulates a county consisting of farms. The key will be a farmer name and the array will be the livestock, with each list corresponding to a different animal.
 
 Implementation:
 
