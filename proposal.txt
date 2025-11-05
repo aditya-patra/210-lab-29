@@ -19,8 +19,10 @@ Livestock count can change through the following processes:
  - propogation: population increase is based on livestock cap and rate of growth varies by species
  - natural death: chance of death varies between livestock species
  - sudden illness: all livestock have equal chance of becoming ill
- - plague: 80% of that type of livestock die for that farmer
-After livestock change, program determines changes in land. If there is available land, there is an 80% chance of it being randomly split between existing farmers and a 20% chance of a new farmer taking it.
+ - plague: farmer loses most of a livestock species
+After livestock change, program determines changes in land. If there is available land, there is a high chance of it being randomly split between existing farmers and a low chance of a new farmer taking it.
  - If a new farmer takes it, type of livestock is randomly decided and starts at halfway to the population cap
  - If land is given to an existing farmer, there is an equal chance of it going to any livestock species or going to a new species
 Value of each livestock for each farmer is then calculated.
+If value of any livestock species is less than 25, farmer sells corresponding land as rent is more than earnings.
+If a farmer loses all of his land, he goes bankrupt and is no longer included
