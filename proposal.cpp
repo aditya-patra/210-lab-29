@@ -2,7 +2,16 @@
 
 // Simulation function
 // function parameter: pointer to current map
-  // Livestock count can change through the following processes:
+  // Iterate over farmers
+    // Iterate over livestock species
+      // For each livestock in current species, compare rand to chance of natural death of species to determine whether the animal dies
+      // Keep track of number of dead animals and subtract from population at the end
+    // Iterate over livestock species
+      // For each livestock in current species, compare rand to chance of illness death of species to determine whether the animal dies
+      // Keep track of number of dead animals and subtract from population at the end
+    // compare rand to change of plague, if plague decrease livestock count by large percentage
+    // Increase each livestock species by species-specific growth factor, make sure it doesn't exceed max population
+  // 
   // - propogation: population increase is based on livestock cap and rate of growth varies by species
   // - natural death: chance of death varies between livestock species
   // - sudden illness: all livestock have equal chance of becoming ill
