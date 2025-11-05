@@ -22,6 +22,6 @@
   // instantiate map
   // set number of available land segments
   // create file reader
-  // read file to form map(each row should contain a)
+  // read file to form map(each row should contain a farmer name followed by this set repeated 4 times - [animal species, number of plots, total value])
   // call simulation function
   // repeat 60 times(300 years, 5 year interval)
