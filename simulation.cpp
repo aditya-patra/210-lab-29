@@ -11,6 +11,38 @@ int RAND_CHANCE = 15;
 // simulation function, takes input of map of farmers as well as information on animal types
 void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> counts, map<string, int> animal_val) {
     for (const auto& pair : farmers){
+        string curr_animal;
+        string curr_pop;
+        string curr_land;
+        int max_pop;
+        // extract each set of animals, land, and population
+        for(int i = 0; i < pair.second[0].size(); i++) {
+            int e = 0;
+            for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                if (e == i) {
+                    curr_animal = *it;
+                    break;
+                }
+                e++;
+            }
+            e = 0;
+            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                if (e == i) {
+                    curr_pop = *it;
+                    break;
+                }
+                e++;
+            }
+            e = 0;
+            for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                if (e == i) {
+                    curr_land = *it;
+                    break;
+                }
+                e++;
+            }
+            
+        }
     }
 }
 
