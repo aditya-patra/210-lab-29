@@ -67,38 +67,32 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
             //get animal value
             animal_value = animal_val[curr_animal];
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
                 if ((int)(rand() % RAND_CHANCE) < 1) {
                     curr_pop -= 1; 
                 }
             }
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of illness/sudden deaths
             for(int e = 0; e < curr_pop; e++) {
                 if ((int)(rand() % RAND_CHANCE) < 1) {
                     curr_pop -= 1; 
                 }
             }
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // check for plague
             if ((int)(rand() % RAND_CHANCE) < 1) {
                 curr_pop *= 0.2; 
             }
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // save new population
             new_pops.push_back(curr_pop);
         }
         // update population
         int e = 0;
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
-            cout << new_pops.at(e) << endl;
             cout << *it << endl;
-            *it = int_to_string(new_pops.at(e), counts_rev);
+            *it = int_to_string(0, counts_rev);
             e++;
         }
         // update land
@@ -106,9 +100,14 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             if (new_pops.at(i) < 25) { 
                 int e = 0;
                 for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
-                    cout << new_pops.at(e) << endl;
                     cout << *it << endl;
-                    *it = int_to_string(new_pops.at(e), counts_rev);
+                    *it = int_to_string(0, counts_rev);
+                    e++;
+                }
+                e = 0;
+                for (auto it = farmers[curr_farmer][2].begin(); it != farmers[curr_farmer][2].end(); it++) {
+                    cout << *it << endl;
+                    *it = int_to_string(0, counts_rev);
                     e++;
                 }
             }

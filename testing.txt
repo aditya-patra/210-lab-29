@@ -3,5 +3,6 @@ For helper function, the unit testing driver program will feed a sample string v
 
 For the simulation, the unit function can be used to test whether the output of the simulation seems correct.
 At the start, I will test one cycle(only printing the information of the farmer)
+Use incremental updates to the simulation function so each section can be tested by driver
 Once I am comfortable with the output, I will cycle through the farmers and check whether all farmers seem to display the expected changes.
 After that, I will test whether multiple executions of the simulation can be run sequentially.
