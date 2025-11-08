@@ -6,3 +6,46 @@ At the start, I will test one cycle(only printing the information of the farmer)
 Use incremental updates to the simulation function so each section can be tested by driver
 Once I am comfortable with the output, I will cycle through the farmers and check whether all farmers seem to display the expected changes.
 After that, I will test whether multiple executions of the simulation can be run sequentially.
+
+
+void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<int, string> counts_rev, map<string, int> animal_val) {
+    //stoi function test
+    cout << (string_to_int("101", counts)) * 10 << endl;
+    cout << (int_to_string(101, counts_rev)) << endl;
+    // function to test simulation
+    // print out original farmer 1 values
+    for(int i = 0; i <= 10; i += 5) {
+        for (const auto& pair : farmers){
+            cout << pair.first << ": ";
+            for (int i = 0; i < 3; i++) {
+                int e = 0;
+                for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
+                }
+                e = 0;
+                for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
+                }
+                e = 0;
+                for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
+                }
+            }
+            cout << endl;
+        }
+        // run simulation
+        simulation(farmers, counts, counts_rev, animal_val);
+    }
+}

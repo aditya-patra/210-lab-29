@@ -225,7 +225,43 @@ int main () {
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
     }
-    driver_function(farmers, counts, counts_rev, animal_val);
+    // driver_function(farmers, counts, counts_rev, animal_val);
+
+    // simulation run
+    for(int i = 0; i <= 300; i += 5) {
+        for (const auto& pair : farmers){
+            cout << pair.first << ": ";
+            for (int i = 0; i < 3; i++) {
+                int e = 0;
+                for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
+                }
+                e = 0;
+                for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
+                }
+                e = 0;
+                for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
+                }
+            }
+            cout << endl;
+        }
+        // run simulation
+        simulation(farmers, counts, counts_rev, animal_val);
+    }
     /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
