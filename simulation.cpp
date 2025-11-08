@@ -18,9 +18,18 @@ int string_to_int(string val, map<char, int> counts) {
     }
     return output;
 }
+// function converts input string to interger
+int string_to_int(string val, map<char, int> counts) {
+    int output = 0;
+    for(int i = 0; i < val.size(); i++) {
+        output *= 10;
+        output += counts[val[i]];
+    }
+    return output;
+}
 
 // simulation function, takes input of map of farmers as well as information on animal types
-void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
+void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<char, int> counts_rev, map<string, int> animal_val) {
     for (const auto& pair : farmers){
         string curr_farmer = pair.first;
         string curr_animal;
@@ -88,19 +97,19 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
             cout << new_pops.at(e) << endl;
             cout << *it << endl;
-            *it = 42;
+            *it = (string)(42);
             e++;
         }
         e = 0;
         cout << "bbbb" << endl;
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
-            cout << *it << endl;
+            cout << (string)*it << endl;
         }
         break;
     }
 }
 
-void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
+void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<char, int> counts_rev, map<string, int> animal_val) {
     //stoi function test
     cout << (string_to_int("101", counts)) * 10 << endl;
     // function to test simulation
@@ -138,7 +147,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
         break;
     }
     // run simulation
-    simulation(farmers, counts, animal_val);
+    simulation(farmers, counts, counts_rev, animal_val);
 
     // print new values
     for (const auto& pair : farmers){
@@ -180,6 +189,7 @@ int main () {
     string reader;
     // 5 animal types
     map<char, int> counts = {{'0', 0}, {'1', 1}, {'2', 2}, {'3', 3}, {'4', 4}, {'5', 5}, {'6', 6}, {'7', 7}, {'8', 8}, {'9', 9}};
+    map<int, char> counts_rev = {{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'}, {4, '4'}, {5, '5'}, {6, '6'}, {7, '7'}, {8, '8'}, {9, '9'}};
     map<string, int> animal_val = {{"Cow", 5}, {"Horse", 6}, {"Sheep", 4}, {"Chicken", 1}, {"Pig", 3}};
     // file input
     while(getline(file, reader)) {
@@ -217,7 +227,7 @@ int main () {
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
     }
-    driver_function(farmers, counts, animal_val);
+    driver_function(farmers, counts, counts_rev, animal_val);
     /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
