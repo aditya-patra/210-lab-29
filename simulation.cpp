@@ -18,7 +18,8 @@ int string_to_int(string val, map<char, int> counts) {
     }
     return output;
 }
-// function converts input string to interger
+
+// function converts input integer to string
 string int_to_string(int val, map<int, string> counts_rev) {
     string output = "";
     while(val > 0) {
@@ -100,10 +101,17 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             *it = int_to_string(new_pops.at(e), counts_rev);
             e++;
         }
-        e = 0;
-        cout << "bbbb" << endl;
-        for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
-            cout << (string)*it << endl;
+        // update land
+        for(int i = 0; i < new_pops.size(); i++) {
+            if (new_pops.at(i) < 25) { 
+                int e = 0;
+                for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
+                    cout << new_pops.at(e) << endl;
+                    cout << *it << endl;
+                    *it = int_to_string(new_pops.at(e), counts_rev);
+                    e++;
+                }
+            }
         }
         break;
     }
