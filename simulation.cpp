@@ -95,7 +95,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         // update population
         int e = 0;
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
-            new_pops.at(e) = 0;
             *it = int_to_string(new_pops.at(e), counts_rev);
             e++;
         }
@@ -137,7 +136,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             farmers[farmer][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
             farmers[farmer][2].push_back(int_to_string(1, counts_rev));
         }
-        break;
     }
 }
 
@@ -147,72 +145,71 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     cout << (int_to_string(101, counts_rev)) << endl;
     // function to test simulation
     // print out original farmer 1 values
-    
-    for (const auto& pair : farmers){
-        cout << pair.first << ": ";
-        for (int i = 0; i < 3; i++) {
-            int e = 0;
-            for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
-                if (e == i) {
-                    cout << *it << " ";
-                    break;
+    for(int i = 0; i <= 10; i += 5) {
+        for (const auto& pair : farmers){
+            cout << pair.first << ": ";
+            for (int i = 0; i < 3; i++) {
+                int e = 0;
+                for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
                 }
-                e++;
-            }
-            e = 0;
-            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
-                if (e == i) {
-                    cout << *it << " ";
-                    break;
+                e = 0;
+                for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
                 }
-                e++;
-            }
-            e = 0;
-            for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
-                if (e == i) {
-                    cout << *it << " ";
-                    break;
+                e = 0;
+                for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
                 }
-                e++;
             }
+            cout << endl;
         }
-        cout << endl;
-        break;
-    }
-    // run simulation
-    simulation(farmers, counts, counts_rev, animal_val);
+        // run simulation
+        simulation(farmers, counts, counts_rev, animal_val);
 
-    // print new values
-    for (const auto& pair : farmers){
-        cout << pair.first << ": ";
-        for (int i = 0; i < 3; i++) {
-            int e = 0;
-            for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
-                if (e == i) {
-                    cout << *it << " ";
-                    break;
+        // print new values
+        for (const auto& pair : farmers){
+            cout << pair.first << ": ";
+            for (int i = 0; i < 3; i++) {
+                int e = 0;
+                for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
                 }
-                e++;
-            }
-            e = 0;
-            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
-                if (e == i) {
-                    cout << *it << " ";
-                    break;
+                e = 0;
+                for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
                 }
-                e++;
-            }
-            e = 0;
-            for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
-                if (e == i) {
-                    cout << *it << " ";
-                    break;
+                e = 0;
+                for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                    if (e == i) {
+                        cout << *it << " ";
+                        break;
+                    }
+                    e++;
                 }
-                e++;
             }
+            cout << endl;
         }
-        cout << endl;
-        break;
     }
 }
 
