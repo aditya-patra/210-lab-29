@@ -51,14 +51,22 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 }
                 e++;
             }
-            // get number of deaths
-            int deaths;
+            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
                 if ((int)(rand() % RAND_CHANCE) > 1) {
-                    deaths += 1; 
+                    curr_pop -= 1; 
                 }
             }
+            // get number of illness/sudden deaths
+            for(int e = 0; e < curr_pop; e++) {
+                if ((int)(rand() % RAND_CHANCE) > 1) {
+                    curr_pop -= 1; 
+                }
+            }
+            // get number of births
         }
+        break;
     }
 }
 
