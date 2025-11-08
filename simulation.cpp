@@ -88,6 +88,10 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             it = new_pops.at(e);
             e++;
         }
+        e = 0;
+        for (auto& it: farmers[curr_animal][1]) {
+            cout << it;
+        }
         break;
     }
 }
@@ -131,8 +135,8 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     }
     // run simulation
     simulation(farmers, counts, animal_val);
+
     // print new values
-    
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
         for (int i = 0; i < 3; i++) {
