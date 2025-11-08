@@ -25,6 +25,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         int curr_pop;
         int curr_land;
         int max_pop;
+        int animal_val;
         // extract each set of animals, land, and population
         for(int i = 0; i < pair.second[0].size(); i++) {
             int e = 0;
@@ -51,6 +52,8 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 }
                 e++;
             }
+            //get animal value
+            animal_val = animal_val[curr_animal];
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
