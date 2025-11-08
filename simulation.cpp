@@ -79,7 +79,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // update population
             e = 0;
-            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+            for (auto it = farmers[curr_animal][1].begin(); it != farmers[curr_animal][1].end(); ++it) {
                 if (e == i) {
                     *it = curr_pop;
                     break;
