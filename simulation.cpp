@@ -22,7 +22,7 @@ int string_to_int(string val, map<char, int> counts) {
 string int_to_string(int val, map<int, string> counts_rev) {
     string output = "";
     while(val > 0) {
-        output += counts_rev[val % 10];
+        output = counts_rev[val % 10] + output;
         val /= 10;
     }
     return output;
@@ -97,7 +97,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
             cout << new_pops.at(e) << endl;
             cout << *it << endl;
-            //*it = (string)(42);
+            *it = int_to_string(new_pops.at(e), counts_rev);
             e++;
         }
         e = 0;
