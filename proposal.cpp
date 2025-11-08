@@ -7,9 +7,9 @@
       // For each livestock in current species, compare rand to chance of natural death of species to determine whether the animal dies(10% / animal value)
       // Keep track of number of dead animals and subtract from population at the end
     // Iterate over livestock species
-      // For each livestock in current species, compare rand to chance of illness death of species to determine whether the animal dies(4%)
+      // For each livestock in current species, compare rand to chance of illness death of species to determine whether the animal dies(8%)
       // Keep track of number of dead animals and subtract from population at the end
-    // compare rand to change of plague, if plague decrease livestock count by large percentage
+    // compare rand to change of plague, if plague decrease livestock count by large percentage(4%)
     // Increase each livestock species by species-specific growth factor, make sure it doesn't exceed max population
   // For each piece of available land, use rand to choose farmer it goes to
     // Use rand to choose type of animal(if animal already in farm, add land to that list index)

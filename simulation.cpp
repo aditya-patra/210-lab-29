@@ -7,7 +7,9 @@
 #include <vector>
 
 using namespace std;
-int RAND_CHANCE = 5;
+const int RAND_CHANCE = 5;
+const int TOTAL_PLOTS = 1110;
+int current_plots = 1110;
 
 // function converts input string to interger
 int string_to_int(string val, map<char, int> counts) {
@@ -94,7 +96,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         // update population
         int e = 0;
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
-            new_pops.at(e) = 0;
             *it = int_to_string(new_pops.at(e), counts_rev);
             e++;
         }
@@ -103,7 +104,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             cout << new_pops.at(i) << endl;
             if (new_pops.at(i) < 25) { 
                 int e = 0;
-                cout << "Need to delete";
                 for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
                     if (e == i)
                         *it = int_to_string(0, counts_rev);
@@ -117,6 +117,8 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 }
             }
         }
+        // update plot allocation
+
         break;
     }
 }
