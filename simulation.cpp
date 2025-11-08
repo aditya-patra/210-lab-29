@@ -11,11 +11,9 @@ int RAND_CHANCE = 15;
 // function converts input string to interger
 int string_to_int(string val, map<char, int> counts) {
     int output = 0;
-    cout << val;
     for(int i = 0; i < val.size(); i++) {
         output *= 10;
         output += counts[val[i]];
-        cout << counts[val[i]] << endl;
     }
     return output;
 }
@@ -55,7 +53,11 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
             // get number of deaths
             int deaths;
-            //for(int e = 0; e < curr_pop; e++) 
+            for(int e = 0; e < curr_pop; e++) {
+                if ((int)(rand() % RAND_CHANCE) > 1) {
+                    deaths += 1; 
+                }
+            }
         }
     }
 }
@@ -103,8 +105,11 @@ int main () {
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
     }
+    /*
     //stoi function test
-    cout << (string_to_int("101", counts));
+    cout << (string_to_int("101", counts));*/
+    // function to test simulation
+    simulation(farmers, counts, animal_val);
     /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
