@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 int RAND_CHANCE = 5;
@@ -26,7 +27,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         int curr_land;
         int max_pop;
         int animal_value;
-        list<int> new_pops;
+        vector<int> new_pops;
         // extract each set of animals, land, and population
         for(int i = 0; i < pair.second[0].size(); i++) {
             int e = 0;
@@ -82,12 +83,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             new_pops.push_back(curr_pop);
         }
         // update population
-        e = 0;
+        int e = 0;
         for (auto it = farmers[curr_animal][1].begin(); it != farmers[curr_animal][1].end(); ++it) {
-            if (e == i) {
-                *it = curr_pop;
-                break;
-            }
+            *it = new_pops.at(e);
             e++;
         }
         break;
