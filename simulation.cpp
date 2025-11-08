@@ -8,7 +8,7 @@
 using namespace std;
 
 int main () {
-    ifstream file("farmers.txt");
+    ifstream file("farmerss.txt");
     map<string, array<list<string>, 3>>;
     string reader;
     while(getline(file, reader)) {
