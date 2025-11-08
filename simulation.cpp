@@ -9,17 +9,19 @@ using namespace std;
 int RAND_CHANCE = 15;
 
 // function converts input string to interger
-int string_to_int(string val, map<string, int> counts) {
+int string_to_int(string val, map<char, int> counts) {
     int output = 0;
+    cout << val;
     for(int i = 0; i < val.size(); i++) {
         output *= 10;
-        output = counts[val];
+        output += counts[val[i]];
+        cout << counts[val[i]] << endl;
     }
     return output;
 }
 
 // simulation function, takes input of map of farmers as well as information on animal types
-void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> counts, map<string, int> animal_val) {
+void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
     for (const auto& pair : farmers){
         string curr_animal;
         int curr_pop;
@@ -53,7 +55,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> c
             }
             // get number of deaths
             int deaths;
-            for(int e = 0; e < curr_pop; e++) 
+            //for(int e = 0; e < curr_pop; e++) 
         }
     }
 }
@@ -63,7 +65,7 @@ int main () {
     map<string, array<list<string>, 3>> farmers;
     string reader;
     // 5 animal types
-    map<string, int> counts = {{"0", 0}, {"1", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}};
+    map<char, int> counts = {{'0', 0}, {'1', 1}, {'2', 2}, {'3', 3}, {'4', 4}, {'5', 5}, {'6', 6}, {'7', 7}, {'8', 8}, {'9', 9}};
     map<string, int> animal_val = {{"Cow", 5}, {"Horse", 6}, {"Sheep", 4}, {"Chicken", 1}, {"Pig", 3}};
     // file input
     while(getline(file, reader)) {
@@ -102,7 +104,7 @@ int main () {
         farmers.insert(make_pair(name, temp));
     }
     //stoi function test
-    cout << (string_to_int("101", counts) * 10);
+    cout << (string_to_int("101", counts));
     /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
