@@ -6,7 +6,7 @@
 #include <string>
 
 using namespace std;
-int RAND_CHANCE = 15;
+int RAND_CHANCE = 5;
 
 // function converts input string to interger
 int string_to_int(string val, map<char, int> counts) {
@@ -57,26 +57,35 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
-                if ((int)(rand() % RAND_CHANCE) > 1) {
+                if ((int)(rand() % RAND_CHANCE) < 1) {
                     curr_pop -= 1; 
                 }
             }
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of illness/sudden deaths
             for(int e = 0; e < curr_pop; e++) {
-                if ((int)(rand() % RAND_CHANCE) > 1) {
+                if ((int)(rand() % RAND_CHANCE) < 1) {
                     curr_pop -= 1; 
                 }
             }
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // check for plague
-            if ((int)(rand() % RAND_CHANCE) > 1) {
+            if ((int)(rand() % RAND_CHANCE) < 1) {
                 curr_pop *= 0.2; 
             }
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of births
-            curr_pop *= 4 / animal_value;
+            curr_pop += curr_pop * 10 / animal_value;
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            // update population
+            e = 0;
+            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                if (e == i) {
+                    *it = curr_pop;
+                    break;
+                }
+                e++;
+            }
         }
         break;
     }
@@ -84,7 +93,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
 
 void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
     //stoi function test
-    cout << (string_to_int("101", counts)) * 10;
+    cout << (string_to_int("101", counts)) * 10 << endl;
     // function to test simulation
     // print out original farmer 1 values
     
