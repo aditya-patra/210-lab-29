@@ -14,17 +14,33 @@ int main () {
     while(getline(file, reader)) {
         array<list<string>, 3> temp;
         string name = reader;
-        for(int i = 0; i < 3; i++) {
-            getline(file, reader);
-            string animal1 = reader;
-            getline(file, reader);
-            string count1 = reader;
-            getline(file, reader);
-            string plot1 = reader;
-            temp[i].push_back(animal1);
-            temp[i].push_back(count1);
-            temp[i].push_back(plot1);
-        }
+        getline(file, reader);
+        string animal1 = reader;
+        getline(file, reader);
+        string count1 = reader;
+        getline(file, reader);
+        string plot1 = reader;
+        getline(file, reader);
+        string animal2 = reader;
+        getline(file, reader);
+        string count2 = reader;
+        getline(file, reader);
+        string plot2 = reader;
+        getline(file, reader);
+        string animal3 = reader;
+        getline(file, reader);
+        string count3 = reader;
+        getline(file, reader);
+        string plot3 = reader;
+        temp[0].push_back(animal1);
+        temp[0].push_back(animal2);
+        temp[0].push_back(animal3);
+        temp[1].push_back(count1);
+        temp[1].push_back(count2);
+        temp[1].push_back(count3);
+        temp[2].push_back(plot1);
+        temp[2].push_back(plot2);
+        temp[2].push_back(plot3);
         farmers.insert(make_pair(name, temp));
     }
     for (const auto& pair : farmers){
