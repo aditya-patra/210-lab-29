@@ -6,7 +6,7 @@ At the start, I will test one cycle(only printing the information of the farmer)
 Use incremental updates to the simulation function so each section can be tested by driver
 Once I am comfortable with the output, I will cycle through the farmers and check whether all farmers seem to display the expected changes.
 After that, I will test whether multiple executions of the simulation can be run sequentially.
-
+Intermediate values are tested in the simulation function itself for additional clarity.
 
 void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<int, string> counts_rev, map<string, int> animal_val) {
     //stoi function test
