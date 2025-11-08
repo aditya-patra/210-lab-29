@@ -44,14 +44,6 @@ int main () {
         farmers.insert(make_pair(name, temp));
     }
     for (const auto& pair : farmers){
-        cout << pair.first;
-        for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
-                cout << *it << " ";
-        }
-        break;
-    }
-    /*
-    for (const auto& pair : farmers){
         cout << pair.first << ": ";
         for (int i = 0; i < 3; i++) {
             int e = 0;
@@ -81,6 +73,5 @@ int main () {
             cout << endl;
         }
     }
-    */
     return 0;
 }
