@@ -178,38 +178,6 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
         }
         // run simulation
         simulation(farmers, counts, counts_rev, animal_val);
-
-        // print new values
-        for (const auto& pair : farmers){
-            cout << pair.first << ": ";
-            for (int i = 0; i < 3; i++) {
-                int e = 0;
-                for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
-                    if (e == i) {
-                        cout << *it << " ";
-                        break;
-                    }
-                    e++;
-                }
-                e = 0;
-                for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
-                    if (e == i) {
-                        cout << *it << " ";
-                        break;
-                    }
-                    e++;
-                }
-                e = 0;
-                for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
-                    if (e == i) {
-                        cout << *it << " ";
-                        break;
-                    }
-                    e++;
-                }
-            }
-            cout << endl;
-        }
     }
 }
 
