@@ -9,7 +9,6 @@
 using namespace std;
 const int RAND_CHANCE = 5;
 const int TOTAL_PLOTS = 1110;
-int current_plots = 1110;
 
 // function converts input string to interger
 int string_to_int(string val, map<char, int> counts) {
@@ -100,6 +99,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             e++;
         }
         // update land
+        int open_plots = 0;
         for(int i = 0; i < new_pops.size(); i++) {
             cout << new_pops.at(i) << endl;
             if (new_pops.at(i) < 25) { 
@@ -112,6 +112,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 e = 0;
                 for (auto it = farmers[curr_farmer][2].begin(); it != farmers[curr_farmer][2].end(); it++) {
                     if (e == i)
+                        open_plots += string_to_int(*it, counts);
                         *it = int_to_string(0, counts_rev);
                     e++;
                 }
