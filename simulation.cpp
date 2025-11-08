@@ -25,7 +25,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         int curr_pop;
         int curr_land;
         int max_pop;
-        int animal_val;
+        int animal_value;
         // extract each set of animals, land, and population
         for(int i = 0; i < pair.second[0].size(); i++) {
             int e = 0;
@@ -53,7 +53,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 e++;
             }
             //get animal value
-            animal_val = animal_val[curr_animal];
+            animal_value = animal_val[curr_animal];
             cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
@@ -61,16 +61,29 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                     curr_pop -= 1; 
                 }
             }
+            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of illness/sudden deaths
             for(int e = 0; e < curr_pop; e++) {
                 if ((int)(rand() % RAND_CHANCE) > 1) {
                     curr_pop -= 1; 
                 }
             }
+            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            // check for plague
+            if ((int)(rand() % RAND_CHANCE) > 1) {
+                curr_pop *= 0.2; 
+            }
+            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of births
+            curr_pop *= 4 / animal_value;
+            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
         }
         break;
     }
+}
+
+int driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
+    simulation(farmers, counts, animal_val);
 }
 
 int main () {
@@ -120,7 +133,6 @@ int main () {
     //stoi function test
     cout << (string_to_int("101", counts));*/
     // function to test simulation
-    simulation(farmers, counts, animal_val);
     /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";

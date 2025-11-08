@@ -1,0 +1,7 @@
+Unit testing applies to 2 functions for my project. One is the string_to_int helper function and the other is the main simulation function.
+For helper function, the unit testing driver program will feed a sample string value and observe whether string is converted to int(this can be accomplished by multiplying the output by 10 and seeing whether it is able to change the original value)
+
+For the simulation, the unit function can be used to test whether the output of the simulation seems correct.
+At the start, I will test one cycle(only printing the information of the farmer)
+Once I am comfortable with the output, I will cycle through the farmers and check whether all farmers seem to display the expected changes.
+After that, I will test whether multiple executions of the simulation can be run sequentially.
