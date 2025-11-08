@@ -88,7 +88,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
             cout << new_pops.at(e) << endl;
             cout << *it << endl;
-            *it = new_pops.at(e);
+            *it = 42;
             e++;
         }
         e = 0;
