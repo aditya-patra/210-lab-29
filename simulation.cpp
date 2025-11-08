@@ -82,8 +82,78 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
     }
 }
 
-int driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
+void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
+    //stoi function test
+    cout << (string_to_int("101", counts)) * 10;
+    // function to test simulation
+    // print out original farmer 1 values
+    
+    for (const auto& pair : farmers){
+        cout << pair.first << ": ";
+        for (int i = 0; i < 3; i++) {
+            int e = 0;
+            for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                    break;
+                }
+                e++;
+            }
+            e = 0;
+            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                    break;
+                }
+                e++;
+            }
+            e = 0;
+            for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                    break;
+                }
+                e++;
+            }
+        }
+        cout << endl;
+        break;
+    }
+    // run simulation
     simulation(farmers, counts, animal_val);
+    // print new values
+    
+    for (const auto& pair : farmers){
+        cout << pair.first << ": ";
+        for (int i = 0; i < 3; i++) {
+            int e = 0;
+            for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                    break;
+                }
+                e++;
+            }
+            e = 0;
+            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                    break;
+                }
+                e++;
+            }
+            e = 0;
+            for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                    break;
+                }
+                e++;
+            }
+        }
+        cout << endl;
+        break;
+    }
 }
 
 int main () {
@@ -129,10 +199,7 @@ int main () {
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
     }
-    /*
-    //stoi function test
-    cout << (string_to_int("101", counts));*/
-    // function to test simulation
+    driver_function(farmers, counts, animal_val);
     /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
