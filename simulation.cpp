@@ -85,7 +85,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         // update population
         int e = 0;
         auto search = farmers.find(curr_animal);
-        cout << &search;
+        cout << *search->second[0].begin();
         for (auto it = farmers[curr_animal][1].begin(); it != farmers[curr_animal][1].end(); it++) {
             *it = new_pops.at(e);
             e++;
