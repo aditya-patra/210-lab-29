@@ -26,6 +26,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         int curr_land;
         int max_pop;
         int animal_value;
+        list<int> new_pops;
         // extract each set of animals, land, and population
         for(int i = 0; i < pair.second[0].size(); i++) {
             int e = 0;
@@ -54,38 +55,40 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
             //get animal value
             animal_value = animal_val[curr_animal];
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            //cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
                 if ((int)(rand() % RAND_CHANCE) < 1) {
                     curr_pop -= 1; 
                 }
             }
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            //cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of illness/sudden deaths
             for(int e = 0; e < curr_pop; e++) {
                 if ((int)(rand() % RAND_CHANCE) < 1) {
                     curr_pop -= 1; 
                 }
             }
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            //cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // check for plague
             if ((int)(rand() % RAND_CHANCE) < 1) {
                 curr_pop *= 0.2; 
             }
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            //cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
-            cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
-            // update population
-            e = 0;
-            for (auto it = farmers[curr_animal][1].begin(); it != farmers[curr_animal][1].end(); ++it) {
-                if (e == i) {
-                    *it = curr_pop;
-                    break;
-                }
-                e++;
+            //cout << curr_animal << " " << curr_land << " " << curr_pop << endl;
+            // save new population
+            new_pops.push_back(curr_pop);
+        }
+        // update population
+        e = 0;
+        for (auto it = farmers[curr_animal][1].begin(); it != farmers[curr_animal][1].end(); ++it) {
+            if (e == i) {
+                *it = curr_pop;
+                break;
             }
+            e++;
         }
         break;
     }
