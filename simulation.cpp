@@ -9,8 +9,9 @@ using namespace std;
 int RAND_CHANCE = 15;
 
 // simulation function, takes input of map of farmers as well as information on animal types
-void simulation(map<string, array<list<string>, 3>>* farmers) {
-
+void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> counts, map<string, int> animal_val) {
+    for (const auto& pair : farmers){
+    }
 }
 
 int main () {
@@ -19,6 +20,7 @@ int main () {
     string reader;
     // 5 animal types
     map<string, int> counts = {{"0", 0}, {"1", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}};
+    map<string, int> animal_val = {{"Cow", 5}, {"Horse", 6}, {"Sheep", 4}, {"Chicken", 1}, {"Pig", 3}};
     // file input
     while(getline(file, reader)) {
         // getting each farmer at once(each list in the array will contain one set of values, farmer animals, animal counts, or allocated fields)
