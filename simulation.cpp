@@ -101,8 +101,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         // update land
         int open_plots = 0;
         for(int i = 0; i < new_pops.size(); i++) {
-            cout << new_pops.at(i) << endl;
-            if (new_pops.at(i) < 25) { 
+            if (new_pops.at(i) < 5) { 
                 int e = 0;
                 for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
                     if (e == i)
@@ -111,9 +110,10 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 }
                 e = 0;
                 for (auto it = farmers[curr_farmer][2].begin(); it != farmers[curr_farmer][2].end(); it++) {
-                    if (e == i)
+                    if (e == i) {
                         open_plots += string_to_int(*it, counts);
                         *it = int_to_string(0, counts_rev);
+                    }
                     e++;
                 }
             }
