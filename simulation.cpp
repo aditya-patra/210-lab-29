@@ -30,7 +30,13 @@ int main () {
     for (const auto& pair : farmers){
         cout << pair.first << ": "  << endl;
         for (int i = 0; i < 3; i++) {
-            
+            int e = 0;
+            for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                }
+                e++;
+            }
         }
     }
     return 0;
