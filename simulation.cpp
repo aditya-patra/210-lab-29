@@ -7,11 +7,18 @@
 
 using namespace std;
 
+// simulation function, takes input of map of farmers as well as information on animal types
+void simulation(map<string, array<list<string>, 3>>* farmers) {
+    
+}
+
 int main () {
     ifstream file("farmers.txt");
     map<string, array<list<string>, 3>> farmers;
     string reader;
+    // file input
     while(getline(file, reader)) {
+        // getting each farmer at once(each list in the array will contain one set of values, farmer animals, animal counts, or allocated fields)
         array<list<string>, 3> temp;
         string name = reader;
         getline(file, reader);
@@ -32,6 +39,7 @@ int main () {
         string count3 = reader;
         getline(file, reader);
         string plot3 = reader;
+        //push inputted values into temporary array
         temp[0].push_back(animal1);
         temp[0].push_back(animal2);
         temp[0].push_back(animal3);
@@ -41,6 +49,7 @@ int main () {
         temp[2].push_back(plot1);
         temp[2].push_back(plot2);
         temp[2].push_back(plot3);
+        // create new index in farmer map
         farmers.insert(make_pair(name, temp));
     }
     for (const auto& pair : farmers){
