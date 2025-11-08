@@ -6,6 +6,7 @@
 #include <string>
 
 using namespace std;
+int RAND_CHANCE = 15;
 
 // simulation function, takes input of map of farmers as well as information on animal types
 void simulation(map<string, array<list<string>, 3>>* farmers) {
@@ -16,6 +17,8 @@ int main () {
     ifstream file("farmers.txt");
     map<string, array<list<string>, 3>> farmers;
     string reader;
+    // 5 animal types
+    map<string, int> counts = {{"0", 0}, {"1", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}};
     // file input
     while(getline(file, reader)) {
         // getting each farmer at once(each list in the array will contain one set of values, farmer animals, animal counts, or allocated fields)
@@ -51,8 +54,6 @@ int main () {
         temp[2].push_back(plot3);
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
-        cout << name << endl;
-        cout << farmers.size() << endl;
     }
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
