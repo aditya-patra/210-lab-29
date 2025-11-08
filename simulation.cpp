@@ -22,7 +22,7 @@ int string_to_int(string val, map<char, int> counts) {
 // simulation function, takes input of map of farmers as well as information on animal types
 void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<string, int> animal_val) {
     for (const auto& pair : farmers){
-        cout << pair.first << endl;
+        string curr_farmer = pair.first;
         string curr_animal;
         int curr_pop;
         int curr_land;
@@ -85,19 +85,14 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         }
         // update population
         int e = 0;
-        auto search = farmers.find(curr_animal);
-        if(search == farmers.end()) {
-            cout << "Found Bob's grade: " << endl;
-        }
-        cout << *search->second[0].begin();
-        for (auto it = farmers[curr_animal][1].begin(); it != farmers[curr_animal][1].end(); it++) {
+        for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
             *it = new_pops.at(e);
             e++;
         }
         e = 0;
         cout << "bbbb" << endl;
-        for (auto it = farmers[curr_animal][1].begin(); it != farmers[curr_animal][1].end(); it++) {
-            cout << *it;
+        for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
+            cout << *it << endl;
         }
         break;
     }
