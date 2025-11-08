@@ -41,9 +41,14 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> c
                 }
                 e++;
             }
-            
+            // get number of deaths
+            for(int e = 0; e < curr_pop; e++) 
         }
     }
+}
+
+int string_to_int(string val) {
+    for()
 }
 
 int main () {
