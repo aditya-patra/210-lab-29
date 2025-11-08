@@ -47,8 +47,13 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> c
     }
 }
 
-int string_to_int(string val) {
-    for()
+int string_to_int(string val, map<string, int> counts) {
+    int output = 0;
+    for(int i = 0; i < val.size(); i++) {
+        output *= 10;
+        output = counts[val];
+    }
+    return output;
 }
 
 int main () {
