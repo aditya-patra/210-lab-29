@@ -9,7 +9,7 @@ using namespace std;
 
 // simulation function, takes input of map of farmers as well as information on animal types
 void simulation(map<string, array<list<string>, 3>>* farmers) {
-    
+
 }
 
 int main () {
@@ -51,6 +51,8 @@ int main () {
         temp[2].push_back(plot3);
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
+        cout << name << endl;
+        cout << farmers.size() << endl;
     }
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
@@ -79,8 +81,8 @@ int main () {
                 }
                 e++;
             }
-            cout << endl;
         }
+        cout << endl;
     }
     return 0;
 }
