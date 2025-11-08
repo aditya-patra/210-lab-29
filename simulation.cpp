@@ -8,12 +8,22 @@
 using namespace std;
 int RAND_CHANCE = 15;
 
+// function converts input string to interger
+int string_to_int(string val, map<string, int> counts) {
+    int output = 0;
+    for(int i = 0; i < val.size(); i++) {
+        output *= 10;
+        output = counts[val];
+    }
+    return output;
+}
+
 // simulation function, takes input of map of farmers as well as information on animal types
 void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> counts, map<string, int> animal_val) {
     for (const auto& pair : farmers){
         string curr_animal;
-        string curr_pop;
-        string curr_land;
+        int curr_pop;
+        int curr_land;
         int max_pop;
         // extract each set of animals, land, and population
         for(int i = 0; i < pair.second[0].size(); i++) {
@@ -28,7 +38,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> c
             e = 0;
             for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
                 if (e == i) {
-                    curr_pop = *it;
+                    curr_pop = string_to_int(*it, counts);
                     break;
                 }
                 e++;
@@ -36,24 +46,16 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<string, int> c
             e = 0;
             for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
                 if (e == i) {
-                    curr_land = *it;
+                    curr_land = string_to_int(*it, counts);
                     break;
                 }
                 e++;
             }
             // get number of deaths
+            int deaths;
             for(int e = 0; e < curr_pop; e++) 
         }
     }
-}
-
-int string_to_int(string val, map<string, int> counts) {
-    int output = 0;
-    for(int i = 0; i < val.size(); i++) {
-        output *= 10;
-        output = counts[val];
-    }
-    return output;
 }
 
 int main () {
@@ -99,6 +101,9 @@ int main () {
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
     }
+    //stoi function test
+    cout << (string_to_int("101", counts) * 10);
+    /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
         for (int i = 0; i < 3; i++) {
@@ -129,5 +134,6 @@ int main () {
         }
         cout << endl;
     }
+    */
     return 0;
 }
