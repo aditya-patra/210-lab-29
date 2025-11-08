@@ -37,6 +37,20 @@ int main () {
                 }
                 e++;
             }
+            e = 0;
+            for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                }
+                e++;
+            }
+            e = 0;
+            for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
+                if (e == i) {
+                    cout << *it << " ";
+                }
+                e++;
+            }
         }
     }
     return 0;
