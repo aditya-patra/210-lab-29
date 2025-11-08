@@ -95,6 +95,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         // update population
         int e = 0;
         for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
+            new_pops.at(e) = 0;
             *it = int_to_string(new_pops.at(e), counts_rev);
             e++;
         }
