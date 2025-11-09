@@ -14,3 +14,5 @@ Bug 7: effect of plague is constant, should be variable
     Fix: make plague decrease population by anywhere between 80% and 90%.
 Bug 8: farmers with no animals/land are still part of the list
     Fix: remove farmers with no animals
+Bug 9: When checking whether an animal dies, curr_pop is reduced while the iterator keeps increasing, meaning not every animal is checked for death
+    Fix: decrease e when an animal dies

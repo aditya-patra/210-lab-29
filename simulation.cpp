@@ -76,14 +76,16 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             animal_value = animal_val[curr_animal];
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
-                if ((int)(rand() % (RAND_CHANCE_DEATH / animal_value)) < 1) {
-                    curr_pop -= 1; 
+                if ((int)(rand() % (RAND_CHANCE_DEATH / animal_value)) < 150) {
+                    curr_pop -= 1;
+                    e--;
                 }
             }
             // get number of illness/sudden deaths
             for(int e = 0; e < curr_pop; e++) {
                 if ((int)(rand() % RAND_CHANCE_ILLNESS) < 8) {
                     curr_pop -= 1; 
+                    e--;
                 }
             }
             // check for plague
@@ -205,7 +207,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     cout << (int_to_string(101, counts_rev)) << endl;
     // function to test simulation
     // print out original farmer 1 values
-    for(int outer = 0; outer <= 100; outer += 5) {
+    for(int outer = 0; outer <= 20; outer += 5) {
         cout << "Blah" << endl << endl << endl;
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
