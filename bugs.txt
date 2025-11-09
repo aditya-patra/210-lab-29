@@ -12,3 +12,5 @@ Bug 6: chance of natural death is equal for all animals(chances of each death oc
     Fix: make it based on animal value so animals like horses live longer than chickens(also create new rand constants for each possibility)
 Bug 7: effect of plague is constant, should be variable
     Fix: make plague decrease population by anywhere between 80% and 90%.
+Bug 8: farmers with no animals/land are still part of the list
+    Fix: remove farmers with no animals
