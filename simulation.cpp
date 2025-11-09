@@ -9,6 +9,7 @@
 using namespace std;
 const int RAND_CHANCE = 5;
 const int TOTAL_PLOTS = 1110;
+const int max_pop = 20;
 
 // function converts input string to interger
 int string_to_int(string val, map<char, int> counts) {
