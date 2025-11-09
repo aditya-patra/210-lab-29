@@ -35,6 +35,7 @@ string int_to_string(int val, map<int, string> counts_rev) {
 
 // simulation function, takes input of map of farmers as well as information on animal types
 void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<int, string> counts_rev, map<string, int> animal_val) {
+    int open_plots = 0;
     for (const auto& pair : farmers){
         string curr_farmer = pair.first;
         string curr_animal;
@@ -99,7 +100,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             e++;
         }
         // update land
-        int open_plots = 0;
         for(int i = 0; i < new_pops.size(); i++) {
             if (new_pops.at(i) < 5) { 
                 int e = 0;
@@ -118,24 +118,25 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 }
             }
         }
-        // update plot allocation
-        for(int i = 0; i < open_plots; i++) {
-            int add_to_farmer = (int)(rand() % farmers.size()) + 1;
-            string farmer = "Farmer"+int_to_string(add_to_farmer, counts_rev);
-            int rand_animal = rand() % 4;
-            string animal;
-            if (rand_animal == 0) 
-                animal = "Sheep";
-            if (rand_animal == 1) 
-                animal = "Chicken";
-            if (rand_animal == 2) 
-                animal = "Horse";
-            if (rand_animal == 3) 
-                animal = "Pig";
-            farmers[farmer][0].push_back(animal);
-            farmers[farmer][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
-            farmers[farmer][2].push_back(int_to_string(1, counts_rev));
-        }
+    }
+    // update plot allocation
+    for(int i = 0; i < open_plots; i++) {
+        int add_to_farmer = (int)(rand() % farmers.size());
+        int e = 0;
+        string farmer = "Farmer"+int_to_string(add_to_farmer, counts_rev);
+        int rand_animal = rand() % 4;
+        string animal;
+        if (rand_animal == 0) 
+            animal = "Sheep";
+        if (rand_animal == 1) 
+            animal = "Chicken";
+        if (rand_animal == 2) 
+            animal = "Horse";
+        if (rand_animal == 3) 
+            animal = "Pig";
+        farmers[farmer][0].push_back(animal);
+        farmers[farmer][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
+        farmers[farmer][2].push_back(int_to_string(1, counts_rev));
     }
 }
 
