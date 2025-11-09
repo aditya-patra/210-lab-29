@@ -91,8 +91,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
-            if (curr_pop > max_pop / animal_val[curr_animal]) {
-                curr_pop = max_pop / animal_val[curr_animal];
+            if (curr_pop > max_pop / animal_value) {
+                cout << "Update curr_pop: " << curr_pop << " to " << max_pop / animal_value << endl << endl;
+                curr_pop = max_pop / animal_value;
             }
             // save new population
             new_pops.push_back(curr_pop);
