@@ -162,7 +162,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
         }
         else {
-            // cout << "Adding to " << farmer_name << endl << endl;
+            cout << "Adding to " << farmer_name << endl << endl;
             for(auto it = farmers[farmer_name][2].begin(); it != farmers[farmer_name][2].end(); ++it) {
                 if (index == 0) {
                     *it += 1;
@@ -225,7 +225,8 @@ int main () {
     map<int, string> counts_rev = {{0, "0"}, {1, "1"}, {2, "2"}, {3, "3"}, {4, "4"}, {5, "5"}, {6, "6"}, {7, "7"}, {8, "8"}, {9, "9"}};
     map<string, int> animal_val = {{"Cow", 5}, {"Horse", 6}, {"Sheep", 4}, {"Chicken", 1}, {"Pig", 3}};
     // file input
-    while(getline(file, reader)) {
+    int i = 0;
+    while(getline(file, reader) && i < 10) {
         // getting each farmer at once(each list in the array will contain one set of values, farmer animals, animal counts, or allocated fields)
         array<list<string>, 3> temp;
         string name = reader;
@@ -259,6 +260,7 @@ int main () {
         temp[2].push_back(plot3);
         // create new index in farmer map
         farmers.insert(make_pair(name, temp));
+        i++;
     }
     // driver_function(farmers, counts, counts_rev, animal_val);
 
