@@ -207,6 +207,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     // function to test simulation
     // print out original farmer 1 values
     for(int outer = 0; outer <= 20; outer += 5) {
+        cout << "Farmer List ------------------------------" << endl;
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
             for (int i = 0; i < 3; i++) {
