@@ -1,0 +1,20 @@
+Bug 1: plot allocation to random farmer once plot opens up is hardcoded to assuming there are 100 farmers to choose from.
+    Fix: use map.size() and iterate through the map to find the correct key value to update the corresponding animal field size
+Bug 2: addition of new animal is limited to 4 of the 5 possible animals
+    Fix: increase rand() and add cow as possible animal (also make rand return int)
+Bug 3: new index is created for each animal added during plot allocation
+    Fix: if index exists, add to that index instead of creating new one
+Bug 4: indices that farmers have lost are not being removed from the list
+    Fix: removed empty indices from farmers
+Bug 5: animal populations seem to be uncapped(max_pop is most likely not being used)
+    Fix: make sure that animal population doesn't exceed cap
+Bug 6: chance of natural death is equal for all animals(chances of each death occuring is the same, but there should be variance in that as well)
+    Fix: make it based on animal value so animals like horses live longer than chickens(also create new rand constants for each possibility)
+Bug 7: effect of plague is constant, should be variable
+    Fix: make plague decrease population by anywhere between 80% and 90%.
+Bug 8: farmers with no animals/land are still part of the list
+    Fix: remove farmers with no animals
+Bug 9: When checking whether an animal dies, curr_pop is reduced while the iterator keeps increasing, meaning not every animal is checked for death
+    Fix: decrease e when an animal dies
+Bug 10: Deletion of an animal index is based on the number of animals, not its value even though it is supposed to represent how farmers sell land that is not profitable
+    Fix: make deletion of animal index based on number and value of animals
