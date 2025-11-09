@@ -145,8 +145,15 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         if (rand_animal == 4)
             animal = "Cow";
         // add to existing index if possible
+        int index = -1;
         e = 0;
-        for(string val: farmers.)
+        for(auto it = farmers[farmer_name][0].begin(); it != farmers[farmer_name][0].end(); ++it) {
+            if (*it == animal) {
+                index = e;
+                break;
+            }
+            e++;
+        }
         farmers[farmer_name][0].push_back(animal);
         farmers[farmer_name][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
         farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
