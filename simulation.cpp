@@ -130,7 +130,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 farmer_name = pair.first;
                 break;
             }
+            e++;
         }
+        // cout << farmer_name << endl;
         // find animal to add
         int rand_animal = (int)(rand() % 5);
         string animal;
@@ -160,7 +162,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
         }
         else {
-            cout << "Adding to " << farmer_name << endl << endl;
+            // cout << "Adding to " << farmer_name << endl << endl;
             for(auto it = farmers[farmer_name][2].begin(); it != farmers[farmer_name][2].end(); ++it) {
                 if (index == 0) {
                     *it += 1;
@@ -178,7 +180,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     cout << (int_to_string(101, counts_rev)) << endl;
     // function to test simulation
     // print out original farmer 1 values
-    // for(int i = 0; i <= 10; i += 5) {
+    for(int i = 0; i <= 10; i += 5) {
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
             for (int i = 0; i < 3; i++) {
@@ -211,7 +213,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
         }
         // run simulation
         simulation(farmers, counts, counts_rev, animal_val);
-    // }
+    }
 }
 
 int main () {
