@@ -103,9 +103,15 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         for(int i = 0; i < new_pops.size(); i++) {
             if (new_pops.at(i) < 5) { 
                 int e = 0;
+                for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
+                    if (e == i)
+                        farmers[curr_farmer][0].erase(it);
+                    e++;
+                }
+                e = 0;
                 for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
                     if (e == i)
-                        *it = int_to_string(0, counts_rev);
+                        farmers[curr_farmer][1].erase(it);
                     e++;
                 }
                 e = 0;
