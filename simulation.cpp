@@ -113,6 +113,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 int e = 0;
                 for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
                     if (e == i) {
+                        cout << *it << " ";
                         farmers[curr_farmer][0].erase(it);
                         break;
                     }
@@ -121,6 +122,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 e = 0;
                 for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
                     if (e == i) {
+                        cout << *it << " ";
                         farmers[curr_farmer][1].erase(it);
                         break;
                     }
@@ -129,12 +131,14 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 e = 0;
                 for (auto it = farmers[curr_farmer][2].begin(); it != farmers[curr_farmer][2].end(); it++) {
                     if (e == i) {
+                        cout << *it << " ";
                         open_plots += string_to_int(*it, counts);
                         farmers[curr_farmer][2].erase(it);
                         break;
                     }
                     e++;
                 }
+                cout << endl;
             }
         }
     }
