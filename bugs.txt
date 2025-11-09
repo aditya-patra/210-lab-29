@@ -1,2 +1,4 @@
 Bug 1: plot allocation to random farmer once plot opens up is hardcoded to assuming there are 100 farmers to choose from.
     Fix: use map.size() and iterate through the map to find the correct key value to update the corresponding animal field size
+Bug 2: addition of new animal is limited to 4 of the 5 possible animals
+    Fix: increase rand() and add cow as possible animal

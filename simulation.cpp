@@ -130,7 +130,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 break;
             }
         }
-        int rand_animal = rand() % 4;
+        int rand_animal = rand() % 5;
         string animal;
         if (rand_animal == 0) 
             animal = "Sheep";
@@ -140,6 +140,8 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             animal = "Horse";
         if (rand_animal == 3) 
             animal = "Pig";
+        if (rand_animal == 4)
+            animal = "Cow";
         farmers[farmer_name][0].push_back(animal);
         farmers[farmer_name][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
         farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
