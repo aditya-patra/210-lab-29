@@ -10,4 +10,5 @@ Bug 5: animal populations seem to be uncapped(max_pop is most likely not being u
     Fix: make sure that animal population doesn't exceed cap
 Bug 6: chance of natural death is equal for all animals(chances of each death occuring is the same, but there should be variance in that as well)
     Fix: make it based on animal value so animals like horses live longer than chickens(also create new rand constants for each possibility)
-Bug 7: effect of plague is 
+Bug 7: effect of plague is constant, should be variable
+    Fix: make plague decrease population by anywhere between 80% and 90%.
