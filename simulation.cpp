@@ -90,9 +90,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
             // check for plague
             if ((int)(rand() % RAND_CHANCE_PLAGUE) < 1) {
-                cout << "PLAGUE DAY! " << curr_pop << " ";
-                curr_pop *= (((double)(rand() % 11)+10)/100.0); 
-                cout << "to " << curr_pop << endl << endl;
+                curr_pop *= (((double)(rand() % 11)+10)/100.0);
             }
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
@@ -146,6 +144,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         cout << "Erasing farmer " << val << endl;
         farmers.erase(val);
     }
+    /*
     // update plot allocation
     for(int i = 0; i < open_plots; i++) {
         int add_to_farmer = (int)(rand() % farmers.size());
@@ -198,6 +197,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
         }
     }
+    */
 }
 
 void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<int, string> counts_rev, map<string, int> animal_val) {
@@ -207,7 +207,6 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     // function to test simulation
     // print out original farmer 1 values
     for(int outer = 0; outer <= 20; outer += 5) {
-        cout << "Blah" << endl << endl << endl;
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
             for (int i = 0; i < 3; i++) {
