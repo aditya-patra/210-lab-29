@@ -181,6 +181,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     // function to test simulation
     // print out original farmer 1 values
     for(int outer = 0; outer <= 10; outer += 5) {
+        cout << "Blah" << endl << endl << endl;
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
             for (int i = 0; i < 3; i++) {
@@ -262,9 +263,10 @@ int main () {
         farmers.insert(make_pair(name, temp));
         i++;
     }
-    // driver_function(farmers, counts, counts_rev, animal_val);
+    driver_function(farmers, counts, counts_rev, animal_val);
 
     // simulation run
+    /*
     for(int i = 0; i <= 300; i += 5) {
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
@@ -299,6 +301,7 @@ int main () {
         // run simulation
         simulation(farmers, counts, counts_rev, animal_val);
     }
+    */
     /*
     for (const auto& pair : farmers){
         cout << pair.first << ": ";
