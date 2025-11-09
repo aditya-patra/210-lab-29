@@ -107,14 +107,13 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             e++;
         }
         // update land
-        for(int i = 0; i < new_pops.size(); i++) {
-            cout << farmers[curr_farmer][0].size() << endl;
+        for(int i = new_pops.size()-1; i >= 0; i--) {
             if (new_pops.at(i) < 5) { 
                 cout << "Erasing index " << i << " from farmer  " << curr_farmer << endl << endl;
                 int e = 0;
                 for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
+                    cout << *it << " ";
                     if (e == i) {
-                        cout << *it << " ";
                         farmers[curr_farmer][0].erase(it);
                         break;
                     }
