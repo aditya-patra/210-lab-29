@@ -8,5 +8,6 @@ Bug 4: indices that farmers have lost are not being removed from the list
     Fix: removed empty indices from farmers
 Bug 5: animal populations seem to be uncapped(max_pop is most likely not being used)
     Fix: make sure that animal population doesn't exceed cap
-Bug 6: chance of natural death is equal for all animals
-    Fix: make it based on animal value so animals like horses live longer than chickens
+Bug 6: chance of natural death is equal for all animals(chances of each death occuring is the same, but there should be variance in that as well)
+    Fix: make it based on animal value so animals like horses live longer than chickens(also create new rand constants for each possibility)
+Bug 7: effect of plague is 
