@@ -8,8 +8,8 @@
 
 using namespace std;
 const int RAND_CHANCE_DEATH = 10;
-const int RAND_CHANCE_ILLNESS = 100;
-const int RAND_CHANCE_PLAGUE = 10;
+const int RAND_CHANCE_ILLNESS = 50;
+const int RAND_CHANCE_PLAGUE = 6;
 const int TOTAL_PLOTS = 1110;
 const int max_pop = 120;
 
@@ -208,7 +208,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     cout << (int_to_string(101, counts_rev)) << endl;
     // function to test simulation
     // print out original farmer 1 values
-    for(int outer = 0; outer <= 20; outer += 5) {
+    for(int outer = 0; outer <= 300; outer += 5) {
         cout << "Farmer List ------------------------------" << endl;
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
