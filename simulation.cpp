@@ -137,7 +137,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
     vector<string> farmers_to_delete;
     for (const auto& pair : farmers){
         if (pair.second[0].size() == 0) {
-            farmers_to_delete.add(pair.first);
+            farmers_to_delete.push_back(pair.first);
         }
     }
     for(string val: farmers_to_delete) {
@@ -205,7 +205,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     cout << (int_to_string(101, counts_rev)) << endl;
     // function to test simulation
     // print out original farmer 1 values
-    for(int outer = 0; outer <= 10; outer += 5) {
+    for(int outer = 0; outer <= 100; outer += 5) {
         cout << "Blah" << endl << endl << endl;
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
