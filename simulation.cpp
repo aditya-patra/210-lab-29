@@ -11,7 +11,7 @@ const int RAND_CHANCE_DEATH = 10;
 const int RAND_CHANCE_ILLNESS = 100;
 const int RAND_CHANCE_PLAGUE = 10;
 const int TOTAL_PLOTS = 1110;
-const int max_pop = 60;
+const int max_pop = 120;
 
 // function converts input string to interger
 int string_to_int(string val, map<char, int> counts) {
