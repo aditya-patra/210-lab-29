@@ -133,6 +133,13 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
         }
     }
+    // update farmer list
+    vector<string> farmers_to_delete;
+    for (const auto& pair : farmers){
+        if (pair.second[0].size() == 0) {
+            farmers_to_delete.add(pair.first);
+        }
+    }
     // update plot allocation
     for(int i = 0; i < open_plots; i++) {
         int add_to_farmer = (int)(rand() % farmers.size());
