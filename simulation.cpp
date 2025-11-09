@@ -89,7 +89,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             // check for plague
             if ((int)(rand() % RAND_CHANCE_PLAGUE) < 1) {
                 cout << "PLAGUE DAY! " << curr_pop << " ";
-                curr_pop *= ((int)(rand() % 11)+10)/100; 
+                curr_pop *= (((double)(rand() % 11)+10)/100.0); 
                 cout << "to " << curr_pop << endl << endl;
             }
             // get number of births
