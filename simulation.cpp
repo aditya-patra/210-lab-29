@@ -7,7 +7,7 @@
 #include <vector>
 
 using namespace std;
-const int RAND_CHANCE = 5;
+const int RAND_CHANCE_DEATH = 10;
 const int TOTAL_PLOTS = 1110;
 const int max_pop = 60;
 
@@ -74,7 +74,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             animal_value = animal_val[curr_animal];
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
-                if ((int)(rand() % RAND_CHANCE) < 1) {
+                if ((int)(rand() % (RAND_CHANCE_DEATH / animal_value)) < 1) {
                     curr_pop -= 1; 
                 }
             }
