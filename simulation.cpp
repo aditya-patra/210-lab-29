@@ -154,9 +154,20 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
             e++;
         }
-        farmers[farmer_name][0].push_back(animal);
-        farmers[farmer_name][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
-        farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
+        if (index == -1) {
+            farmers[farmer_name][0].push_back(animal);
+            farmers[farmer_name][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
+            farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
+        }
+        else {
+            for(auto it = farmers[farmer_name][2].begin(); it != farmers[farmer_name][2].end(); ++it) {
+                if (index == 0) {
+                    *it += 1;
+                    break;
+                }
+                index--;
+            }
+        }
     }
 }
 
