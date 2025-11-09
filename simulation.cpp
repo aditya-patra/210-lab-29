@@ -162,10 +162,10 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
         }
         else {
-            cout << "Adding to " << farmer_name << endl << endl;
+            cout << "Adding to " << farmer_name << " for " << animal << endl;
             for(auto it = farmers[farmer_name][2].begin(); it != farmers[farmer_name][2].end(); ++it) {
                 if (index == 0) {
-                    *it += 1;
+                    *it += int_to_string(string_to_int(*it, counts)+1, counts_rev);
                     break;
                 }
                 index--;
