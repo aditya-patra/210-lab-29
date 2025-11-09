@@ -112,7 +112,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 for (auto it = farmers[curr_farmer][2].begin(); it != farmers[curr_farmer][2].end(); it++) {
                     if (e == i) {
                         open_plots += string_to_int(*it, counts);
-                        *it = int_to_string(0, counts_rev);
+                        farmers[curr_farmer][2].erase(*it);
                     }
                     e++;
                 }
