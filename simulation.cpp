@@ -223,7 +223,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
                 int e = 0;
                 for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
                     if (e == i) {
-                        cout << *it << " ";
+                        cout << i << *it << " ";
                         break;
                     }
                     e++;
