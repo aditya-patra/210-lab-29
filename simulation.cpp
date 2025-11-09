@@ -124,12 +124,14 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         int add_to_farmer = (int)(rand() % farmers.size());
         int e = 0;
         string farmer_name;
+        // find farmer to add to
         for (const auto& pair : farmers){
             if (e == add_to_farmer) {
                 farmer_name = pair.first;
                 break;
             }
         }
+        // find animal to add
         int rand_animal = (int)(rand() % 5);
         string animal;
         if (rand_animal == 0) 
@@ -142,6 +144,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             animal = "Pig";
         if (rand_animal == 4)
             animal = "Cow";
+        // add to existing index if possible
+        e = 0;
+        for(string val: farmers.)
         farmers[farmer_name][0].push_back(animal);
         farmers[farmer_name][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
         farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
