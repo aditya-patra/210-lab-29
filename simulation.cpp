@@ -76,7 +76,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             animal_value = animal_val[curr_animal];
             // get number of natural deaths
             for(int e = 0; e < curr_pop; e++) {
-                if ((int)(rand() % (RAND_CHANCE_DEATH / animal_value)) < 150) {
+                if ((int)(rand() % (RAND_CHANCE_DEATH / animal_value)) < 1) {
                     curr_pop -= 1;
                     e--;
                 }
@@ -108,11 +108,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         }
         // update land
         for(int i = new_pops.size()-1; i >= 0; i--) {
-            if (new_pops.at(i) < 5) { 
-                cout << "Erasing index " << i << " from farmer  " << curr_farmer << endl << endl;
+            if (new_pops.at(i) < 5) {
                 int e = 0;
                 for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
-                    cout << *it << " ";
                     if (e == i) {
                         farmers[curr_farmer][0].erase(it);
                         break;
@@ -122,7 +120,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 e = 0;
                 for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
                     if (e == i) {
-                        cout << *it << " ";
                         farmers[curr_farmer][1].erase(it);
                         break;
                     }
@@ -131,14 +128,12 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 e = 0;
                 for (auto it = farmers[curr_farmer][2].begin(); it != farmers[curr_farmer][2].end(); it++) {
                     if (e == i) {
-                        cout << *it << " ";
                         open_plots += string_to_int(*it, counts);
                         farmers[curr_farmer][2].erase(it);
                         break;
                     }
                     e++;
                 }
-                cout << endl;
             }
         }
     }
@@ -153,7 +148,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         cout << "Erasing farmer " << val << endl;
         farmers.erase(val);
     }
-    /*
     // update plot allocation
     for(int i = 0; i < open_plots; i++) {
         int add_to_farmer = (int)(rand() % farmers.size());
@@ -206,7 +200,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
         }
     }
-    */
 }
 
 void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int> counts, map<int, string> counts_rev, map<string, int> animal_val) {
