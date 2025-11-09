@@ -9,7 +9,7 @@
 using namespace std;
 const int RAND_CHANCE = 5;
 const int TOTAL_PLOTS = 1110;
-const int max_pop = 20;
+const int max_pop = 60;
 
 // function converts input string to interger
 int string_to_int(string val, map<char, int> counts) {
@@ -91,6 +91,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             }
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
+            if (curr_pop > max_pop / animal_val[curr_animal]) {
+                curr_pop = max_pop / animal_val[curr_animal];
+            }
             // save new population
             new_pops.push_back(curr_pop);
         }
