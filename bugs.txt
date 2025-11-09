@@ -4,3 +4,5 @@ Bug 2: addition of new animal is limited to 4 of the 5 possible animals
     Fix: increase rand() and add cow as possible animal (also make rand return int)
 Bug 3: new index is created for each animal added during plot allocation
     Fix: if index exists, add to that index instead of creating new one
+Bug 4: indices that farmers have lost are not being removed from the list
+    Fix: removed empty indices from farmers
