@@ -130,7 +130,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 break;
             }
         }
-        int rand_animal = rand() % 5;
+        int rand_animal = (int)(rand() % 5);
         string animal;
         if (rand_animal == 0) 
             animal = "Sheep";
