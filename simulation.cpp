@@ -140,6 +140,10 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             farmers_to_delete.add(pair.first);
         }
     }
+    for(string val: farmers_to_delete) {
+        cout << "Erasing farmer " << val << endl;
+        farmers.erase(val);
+    }
     // update plot allocation
     for(int i = 0; i < open_plots; i++) {
         int add_to_farmer = (int)(rand() % farmers.size());
