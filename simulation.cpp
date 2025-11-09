@@ -108,6 +108,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         }
         // update land
         for(int i = 0; i < new_pops.size(); i++) {
+            cout << farmers[curr_farmer][0].size() << endl;
             if (new_pops.at(i) < 5) { 
                 cout << "Erasing index " << i << " from farmer  " << curr_farmer << endl << endl;
                 int e = 0;
@@ -223,7 +224,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
                 int e = 0;
                 for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
                     if (e == i) {
-                        cout << i << *it << " ";
+                        cout << *it << " ";
                         break;
                     }
                     e++;
