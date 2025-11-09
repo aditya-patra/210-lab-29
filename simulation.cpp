@@ -42,7 +42,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         string curr_animal;
         int curr_pop;
         int curr_land;
-        int max_pop;
         int animal_value;
         vector<int> new_pops;
         // extract each set of animals, land, and population
@@ -92,7 +91,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
             if (curr_pop > max_pop / animal_value) {
-                cout << "Update curr_pop: " << curr_pop << " to " << max_pop / animal_value << endl << endl;
+                cout << "Update curr_pop: " << curr_pop << " to " << max_pop / animal_value << " when animal value is " << animal_value << endl << endl;
                 curr_pop = max_pop / animal_value;
             }
             // save new population
