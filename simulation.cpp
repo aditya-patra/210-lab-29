@@ -112,14 +112,18 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 cout << "Erasing index " << i << " from farmer " << curr_farmer << endl << endl;
                 int e = 0;
                 for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
-                    if (e == i)
+                    if (e == i) {
                         farmers[curr_farmer][0].erase(it);
+                        break;
+                    }
                     e++;
                 }
                 e = 0;
                 for (auto it = farmers[curr_farmer][1].begin(); it != farmers[curr_farmer][1].end(); it++) {
-                    if (e == i)
+                    if (e == i) {
                         farmers[curr_farmer][1].erase(it);
+                        break;
+                    }
                     e++;
                 }
                 e = 0;
@@ -127,6 +131,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                     if (e == i) {
                         open_plots += string_to_int(*it, counts);
                         farmers[curr_farmer][2].erase(it);
+                        break;
                     }
                     e++;
                 }
