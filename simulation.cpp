@@ -123,7 +123,13 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
     for(int i = 0; i < open_plots; i++) {
         int add_to_farmer = (int)(rand() % farmers.size());
         int e = 0;
-        string farmer = "Farmer"+int_to_string(add_to_farmer, counts_rev);
+        string farmer_name;
+        for (const auto& pair : farmers){
+            if (e == add_to_farmer) {
+                farmer_name = pair.first;
+                break;
+            }
+        }
         int rand_animal = rand() % 4;
         string animal;
         if (rand_animal == 0) 
@@ -134,9 +140,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             animal = "Horse";
         if (rand_animal == 3) 
             animal = "Pig";
-        farmers[farmer][0].push_back(animal);
-        farmers[farmer][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
-        farmers[farmer][2].push_back(int_to_string(1, counts_rev));
+        farmers[farmer_name][0].push_back(animal);
+        farmers[farmer_name][1].push_back(int_to_string((int)(rand() % 20), counts_rev));
+        farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
     }
 }
 
