@@ -6,3 +6,5 @@ Bug 3: new index is created for each animal added during plot allocation
     Fix: if index exists, add to that index instead of creating new one
 Bug 4: indices that farmers have lost are not being removed from the list
     Fix: removed empty indices from farmers
+Bug 5: animal populations seem to be uncapped(max_pop is most likely not being used)
+    Fix: make sure that animal population doesn't exceed cap
