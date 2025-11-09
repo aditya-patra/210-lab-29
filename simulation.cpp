@@ -180,7 +180,7 @@ void driver_function(map<string, array<list<string>, 3>>& farmers, map<char, int
     cout << (int_to_string(101, counts_rev)) << endl;
     // function to test simulation
     // print out original farmer 1 values
-    for(int i = 0; i <= 10; i += 5) {
+    for(int outer = 0; outer <= 10; outer += 5) {
         for (const auto& pair : farmers){
             cout << pair.first << ": ";
             for (int i = 0; i < 3; i++) {
