@@ -294,12 +294,12 @@ int main () {
     for(int i = 0; i <= 300; i += 5) {
         cout << "Farmer List ---------------------------------------------------" << endl;
         for (const auto& pair : farmers){
-            cout << pair.first << ": ";
+            cout << pair.first << ": " << endl;
             for (int i = 0; i < 3; i++) {
                 int e = 0;
                 for (auto it = pair.second[0].begin(); it != pair.second[0].end(); ++it) {
                     if (e == i) {
-                        cout << *it << " ";
+                        cout << "Animal 1: " << *it << " ";
                         break;
                     }
                     e++;
@@ -307,7 +307,7 @@ int main () {
                 e = 0;
                 for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
                     if (e == i) {
-                        cout << *it << " ";
+                        cout << "; Count: " *it << " ";
                         break;
                     }
                     e++;
@@ -315,7 +315,7 @@ int main () {
                 e = 0;
                 for (auto it = pair.second[2].begin(); it != pair.second[2].end(); ++it) {
                     if (e == i) {
-                        cout << *it << " ";
+                        cout << "; Land Allocated: " << *it << " ";
                         break;
                     }
                     e++;
