@@ -108,7 +108,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         }
         // update land
         for(int i = new_pops.size()-1; i >= 0; i--) {
-            if (new_pops.at(i) < 5) {
+            if (new_pops.at(i) < (int)(30/animal_value)) {
                 int e = 0;
                 for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
                     if (e == i) {
