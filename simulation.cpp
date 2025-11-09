@@ -9,6 +9,7 @@
 using namespace std;
 const int RAND_CHANCE_DEATH = 10;
 const int RAND_CHANCE_ILLNESS = 100;
+const int RAND_CHANCE_PLAGUE = 10;
 const int TOTAL_PLOTS = 1110;
 const int max_pop = 60;
 
@@ -86,8 +87,8 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
                 }
             }
             // check for plague
-            if ((int)(rand() % RAND_CHANCE) < 1) {
-                curr_pop *= 0.2; 
+            if ((int)(rand() % RAND_CHANCE_PLAGUE) < 1) {
+                curr_pop *= ((int)(rand() % 11)+10)/100; 
             }
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
