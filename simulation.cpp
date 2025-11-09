@@ -109,9 +109,9 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
         // update land
         for(int i = 0; i < new_pops.size(); i++) {
             if (new_pops.at(i) < 5) { 
+                cout << "Erasing index " << i << " from farmer " << curr_farmer << endl << endl;
                 int e = 0;
                 for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
-                    cout << "Erasing index " << i << " from farmer " << curr_farmer << endl << endl;
                     if (e == i)
                         farmers[curr_farmer][0].erase(it);
                     e++;
