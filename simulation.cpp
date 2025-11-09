@@ -97,7 +97,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             // get number of births
             curr_pop += curr_pop * 10 / animal_value;
             if (curr_pop > max_pop / animal_value) {
-                cout << "Update curr_pop: " << curr_pop << " to " << max_pop / animal_value << " when animal value is " << animal_value << endl << endl;
                 curr_pop = max_pop / animal_value;
             }
             // save new population
@@ -114,6 +113,7 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             if (new_pops.at(i) < 5) { 
                 int e = 0;
                 for (auto it = farmers[curr_farmer][0].begin(); it != farmers[curr_farmer][0].end(); it++) {
+                    cout << "Erasing index " << i << " from farmer " << curr_farmer << endl << endl;
                     if (e == i)
                         farmers[curr_farmer][0].erase(it);
                     e++;
@@ -189,7 +189,6 @@ void simulation(map<string, array<list<string>, 3>>& farmers, map<char, int> cou
             farmers[farmer_name][2].push_back(int_to_string(1, counts_rev));
         }
         else {
-            cout << "Adding to " << farmer_name << " for " << animal << endl;
             for(auto it = farmers[farmer_name][2].begin(); it != farmers[farmer_name][2].end(); ++it) {
                 if (index == 0) {
                     *it = int_to_string(string_to_int(*it, counts)+1, counts_rev);
