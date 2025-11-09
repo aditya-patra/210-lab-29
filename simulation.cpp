@@ -307,7 +307,7 @@ int main () {
                 e = 0;
                 for (auto it = pair.second[1].begin(); it != pair.second[1].end(); ++it) {
                     if (e == i) {
-                        cout << "; Count: " *it << " ";
+                        cout << "; Count: " << *it << " ";
                         break;
                     }
                     e++;
